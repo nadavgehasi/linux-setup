@@ -1,9 +1,18 @@
+# Setup RSA Key for git
+#ssh-keygen
+echo -e "\n\n"
+cat ~/.ssh/id_rsa.pub
+echo -e "\n\n"
+read  -n 1 -p "Insert the rsa public key inside github and press Enter to continue" mainmenuinput
+
+# Install programs
 sudo apt install -y vim tmux htop
 
 # Setup git
 sudo apt install -y git
 
 # Configure User Details
+echo "Configuring git"
 git config --global user.email "nadavgehasi@gmail.com"
 git config --global user.name "Nadav Gihasi"
 
@@ -12,20 +21,21 @@ git config --global alias.br branch
 git config --global alias.co checkout
 git config --global alias.st status
 
+# Setup Dotfiles
+echo "Cloning Dotfiles"
+git clone --recurse-submodule git@github.com:nadavgehasi/.vim.git ~/.vim
+ln -s ~/.vim/.vimrc ~/.vimrc
+
 # Setup docker
+echo "Configuring Docker"
 sudo apt install -y docker.io
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 sudo systemctl start docker
 
-# ssh-keygen
+# Create Working dir
 sudo mkdir /data
 sudo chown $USER:$USER /data
 
 
-
-
-
-
-cat ~/.ssh/id_rsa.pub
