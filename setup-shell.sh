@@ -1,5 +1,16 @@
-sudo apt install -y git vim tmux htop
+sudo apt install -y vim tmux htop
 
+# Setup git
+sudo apt install -y git
+
+# Configure User Details
+git config --global user.email "nadavgehasi@gmail.com"
+git config --global user.name "Nadav Gihasi"
+
+# Configure Aliases
+git config --global alias.br branch
+git config --global alias.co checkout
+git config --global alias.st status
 
 # Setup docker
 sudo apt install -y docker.io
