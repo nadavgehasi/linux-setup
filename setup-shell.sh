@@ -23,6 +23,9 @@ git config --global alias.st status
 
 # Setup Dotfiles
 echo "Cloning Dotfiles"
+git clone --recurse-submodule git@github.com:nadavgehasi/.bash.git ~/.bash
+mv ~/.bashrc ~/.bash/.bashrc_before_setup
+ln -s ~/.bash/.bashrc ~/.bashrc
 git clone --recurse-submodule git@github.com:nadavgehasi/.vim.git ~/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc
 git clone --recurse-submodule git@github.com:nadavgehasi/.tmux.git ~/.tmux
@@ -33,7 +36,6 @@ echo "Configuring Docker"
 #sudo apt install -y docker.io
 #sudo groupadd docker
 #sudo usermod -aG docker $USER
-#newgrp docker
 #sudo systemctl start docker
 
 # Create Working dir
@@ -44,3 +46,6 @@ mkdir -p /data/workspace/devops
 
 # Clone dev-ops repo
 git clone git@github.com:nadavgehasi/devops.git /data/workspace/devops
+
+
+sudo reboot
