@@ -43,15 +43,16 @@ sudo chown $USER:$USER /data
 mkdir -p /data/workspace/python-workspace
 mkdir -p /data/workspace/devops
 
-# Clone dev-ops repo
+# Clone developed repos
+git clone git@github.com:nadavgehasi/linux-setup.git /data/workspace/linux-setup
 git clone git@github.com:nadavgehasi/devops.git /data/workspace/devops
 
-# Setup docker                                                                                                           
-echo "Configuring Docker"                                                                                                
-sudo apt install -y docker.io                                                                                            
-sudo groupadd docker                                                                                                     
-sudo usermod -aG docker $USER                                                                                            
-sudo systemctl start docker 
+# Setup docker 
+echo "Configuring Docker"
+sudo apt install -y docker.io
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl start docker
 sudo systemctl enable docker
 
 
