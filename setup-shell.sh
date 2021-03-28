@@ -6,7 +6,7 @@ echo -e "\n\n"
 read  -n 1 -p "Insert the rsa public key inside github and press Enter to continue" mainmenuinput
 
 # Install programs
-sudo apt install -y vim tmux htop
+xargs sudo apt install -y <apt-packages.txt
 
 # Setup git
 sudo apt install -y git
