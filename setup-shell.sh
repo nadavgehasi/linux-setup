@@ -24,9 +24,7 @@ git config --global alias.st status
 # Setup Dotfiles
 echo "Cloning Dotfiles"
 git clone --recurse-submodule git@github.com:nadavgehasi/.bash.git ~/.bash
-mv ~/.bashrc ~/.bash/.bashrc_before_setup
-chmod +x ~/.bash/.bashrc_before_setup
-ln -s ~/.bash/.bashrc ~/.bashrc
+echo "~/.bash/.bashrc" >>  ~/.bashrc
 git clone --recurse-submodule git@github.com:nadavgehasi/.vim.git ~/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc
 git clone --recurse-submodule git@github.com:nadavgehasi/.tmux.git ~/.tmux
