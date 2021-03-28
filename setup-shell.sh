@@ -28,14 +28,17 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 
 # Setup docker
 echo "Configuring Docker"
-sudo apt install -y docker.io
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-sudo systemctl start docker
+#sudo apt install -y docker.io
+#sudo groupadd docker
+#sudo usermod -aG docker $USER
+#newgrp docker
+#sudo systemctl start docker
 
 # Create Working dir
 sudo mkdir /data
 sudo chown $USER:$USER /data
+mkdir -p /data/workspace/python-workspace
+mkdir -p /data/workspace/devops
 
-
+# Clone dev-ops repo
+git clone git@github.com:nadavgehasi/devops.git /data/workspace/devops
