@@ -1,5 +1,5 @@
 # Setup RSA Key for git
-#ssh-keygen
+ssh-keygen
 echo -e "\n\n"
 cat ~/.ssh/id_rsa.pub
 echo -e "\n\n"
@@ -25,6 +25,7 @@ git config --global alias.st status
 echo "Cloning Dotfiles"
 git clone --recurse-submodule git@github.com:nadavgehasi/.bash.git ~/.bash
 mv ~/.bashrc ~/.bash/.bashrc_before_setup
+chmod +x ~/.bash/.bashrc_before_setup
 ln -s ~/.bash/.bashrc ~/.bashrc
 git clone --recurse-submodule git@github.com:nadavgehasi/.vim.git ~/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc
@@ -33,10 +34,10 @@ ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
 
 # Setup docker
 echo "Configuring Docker"
-#sudo apt install -y docker.io
-#sudo groupadd docker
-#sudo usermod -aG docker $USER
-#sudo systemctl start docker
+sudo apt install -y docker.io
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl start docker
 
 # Create Working dir
 sudo mkdir /data
@@ -46,6 +47,13 @@ mkdir -p /data/workspace/devops
 
 # Clone dev-ops repo
 git clone git@github.com:nadavgehasi/devops.git /data/workspace/devops
+
+# Setup docker                                                                                                           
+echo "Configuring Docker"                                                                                                
+sudo apt install -y docker.io                                                                                            
+sudo groupadd docker                                                                                                     
+sudo usermod -aG docker $USER                                                                                            
+sudo systemctl start docker 
 
 
 sudo reboot
