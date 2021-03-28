@@ -25,6 +25,8 @@ git config --global alias.st status
 echo "Cloning Dotfiles"
 git clone --recurse-submodule git@github.com:nadavgehasi/.vim.git ~/.vim
 ln -s ~/.vim/.vimrc ~/.vimrc
+git clone --recurse-submodule git@github.com:nadavgehasi/.tmux.git ~/.tmux
+ln -s ~/.tmux/.tmux.conf ~/.tmux.conf
 
 # Setup docker
 echo "Configuring Docker"
